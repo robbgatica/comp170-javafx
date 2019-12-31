@@ -1,3 +1,3 @@
 # MiniCalc - JavaFX example
 
-![calc-image](calc-img.png)
+![calc-image](./calc-img.png)
