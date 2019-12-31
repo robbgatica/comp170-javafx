@@ -1,0 +1,46 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import sample.CalcButton ?>
+
+<?import javafx.scene.control.Label?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" stylesheets="/styles.css" alignment="top_center" hgap="10" vgap="10">
+
+    <TextField fx:id="text" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+
+    <HBox GridPane.rowIndex="1" GridPane.columnIndex="0" alignment="BASELINE_LEFT">
+        <CalcButton fx:id="clear" styleClass="misc" text="AC" prefWidth="50" prefHeight="40" onAction="#clearButtonClicked"/>
+        <Label text="" prefWidth="50" prefHeight="40" />
+        <Label text="" prefWidth="50" prefHeight="40" />
+        <CalcButton fx:id="div" styleClass="oper" text="/" prefWidth="50" prefHeight="40" onAction="#divButtonClicked" />
+    </HBox>
+
+    <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" alignment="BASELINE_CENTER">
+        <CalcButton fx:id="seven" styleClass="number" value="7" text="7" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="eight" styleClass="number" value="8" text="8" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="nine" styleClass="number" value="9" text="9" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="mult" styleClass="oper" text="x" prefWidth="50" prefHeight="40" onAction="#multButtonClicked" />
+    </HBox>
+
+    <HBox GridPane.rowIndex="3" GridPane.columnIndex="0" alignment="BASELINE_CENTER">
+        <CalcButton fx:id="four" styleClass="number" value="4" text="4" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="five" styleClass="number" value="5" text="5" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="six" styleClass="number" value="6" text="6" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="minus" styleClass="oper" text="-" prefWidth="50" prefHeight="40" onAction="#minusButtonClicked" />
+    </HBox>
+
+    <HBox GridPane.rowIndex="4" GridPane.columnIndex="0" alignment="BASELINE_CENTER">
+        <CalcButton fx:id="one" styleClass="number" value="1" text="1" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="two" styleClass="number" value="2" text="2" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="three" styleClass="number" value="3" text="3" prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="plus" styleClass="oper" text="+" prefWidth="50" prefHeight="40" onAction="#plusButtonClicked" />
+    </HBox>
+
+    <HBox GridPane.rowIndex="5" GridPane.columnIndex="0" alignment="BASELINE_CENTER">
+        <CalcButton fx:id="zero" styleClass="number" value="0" text="0" prefWidth="100" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="dot" styleClass="misc"  value ="." text="." prefWidth="50" prefHeight="40" onAction="#numberButtonClicked"/>
+        <CalcButton fx:id="equals" styleClass="oper" text="=" prefWidth="50" prefHeight="40" onAction="#equalsButtonClicked" />
+    </HBox>
+
+</GridPane>

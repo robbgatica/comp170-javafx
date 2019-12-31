@@ -1,0 +1,31 @@
+.root {
+-fx-background-color: "#1C1C1C";
+}
+.text-field {
+-fx-background-color: "#1C1C1C";
+-fx-text-fill: "#FFFFFF";
+-fx-font-size: 16px;
+}
+.oper {
+-fx-background-color: "#FF9500";
+-fx-text-fill: "#FFFFFF";
+-fx-padding: 1px;
+-fx-border-insets: 2px;
+-fx-background-insets: 2px;
+}
+.number, .misc {
+-fx-background-color: "#505050";
+-fx-text-fill: "#FFFFFF";
+-fx-padding: 1px;
+-fx-border-insets: 2px;
+-fx-background-insets: 2px;
+}
+.number:hover {
+-fx-background-color: "#6A6A6A";
+}
+.misc:hover {
+-fx-background-color: "#6A6A6A";
+}
+.oper:hover {
+-fx-background-color: "#FFAF1A";
+}
