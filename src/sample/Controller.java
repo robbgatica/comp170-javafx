@@ -10,16 +10,17 @@ public class Controller {
     private double total = 0, current = 0;
     private boolean isReadyForNew = false, isFresh = true;
     private Operator op;
-    @FXML private TextField text;
+    @FXML
+    private TextField text;
 
     @FXML
     public void numberButtonClicked(ActionEvent e) {
-       if (isReadyForNew) {
-          text.clear();
-       }
-            String digit = ((CalcButton) e.getSource()).getText();
-            text.appendText(digit);
-            isReadyForNew = false;
+        if (isReadyForNew) {
+            text.clear();
+        }
+        String digit = ((CalcButton) e.getSource()).getText();
+        text.appendText(digit);
+        isReadyForNew = false;
     }
 
     @FXML
@@ -27,33 +28,45 @@ public class Controller {
         current = Double.parseDouble(text.getText());
         if (isFresh) {
             total = current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
             isReadyForNew = true;
             isFresh = false;
             op = Operator.ADD;
             return;
         }
         total = total + current;
-        text.setText(Double.toString(total));
+        if (isWholeNumber(total)) {
+            text.setText("" + (int) total);
+        } else
+            text.setText(Double.toString(total));
         op = Operator.ADD;
         isReadyForNew = true;
     }
 
     @FXML
     public void minusButtonClicked(ActionEvent e) {
-            current = Double.parseDouble(text.getText());
+        current = Double.parseDouble(text.getText());
         if (isFresh) {
             total = current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
             isReadyForNew = true;
             isFresh = false;
             op = Operator.SUBTRACT;
             return;
         }
-            total = total - current;
+        total = total - current;
+        if (isWholeNumber(total)) {
+            text.setText("" + (int) total);
+        } else
             text.setText(Double.toString(total));
-            op = Operator.SUBTRACT;
-            isReadyForNew = true;
+        op = Operator.SUBTRACT;
+        isReadyForNew = true;
     }
 
     @FXML
@@ -61,14 +74,20 @@ public class Controller {
         current = Double.parseDouble(text.getText());
         if (isFresh) {
             total = current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
             isReadyForNew = true;
             isFresh = false;
             op = Operator.MULTIPLY;
             return;
         }
         total = total * current;
-        text.setText(Double.toString(total));
+        if (isWholeNumber(total)) {
+            text.setText("" + (int) total);
+        } else
+            text.setText(Double.toString(total));
         op = Operator.MULTIPLY;
         isReadyForNew = true;
     }
@@ -78,14 +97,20 @@ public class Controller {
         current = Double.parseDouble(text.getText());
         if (isFresh) {
             total = current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
             isReadyForNew = true;
             isFresh = false;
             op = Operator.DIVIDE;
             return;
         }
         total = total / current;
-        text.setText(Double.toString(total));
+        if (isWholeNumber(total)) {
+            text.setText("" + (int) total);
+        } else
+            text.setText(Double.toString(total));
         op = Operator.DIVIDE;
         isReadyForNew = true;
     }
@@ -95,16 +120,28 @@ public class Controller {
         current = Double.parseDouble(text.getText());
         if (op == Operator.ADD) {
             total = total + current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
         } else if (op == Operator.SUBTRACT) {
             total = total - current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
         } else if (op == Operator.MULTIPLY) {
             total = total * current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
         } else if (op == Operator.DIVIDE) {
             total = total / current;
-            text.setText(Double.toString(total));
+            if (isWholeNumber(total)) {
+                text.setText("" + (int) total);
+            } else
+                text.setText(Double.toString(total));
         }
         isReadyForNew = false;
         isFresh = true;
@@ -118,8 +155,12 @@ public class Controller {
         isReadyForNew = false;
         isFresh = true;
     }
+
+    private boolean isWholeNumber(double num) {
+        return (num % 1) == 0;
+    }
 }
 
- enum Operator {
+enum Operator {
     ADD, SUBTRACT, MULTIPLY, DIVIDE
 }
